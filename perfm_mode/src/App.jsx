@@ -1,24 +1,32 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { getNetWorkDetails, getPerformanceType } from "./functions";
+import Emoji, { types as EmojiTyp } from "./components/Emoji";
 
 function App() {
-  const [state, setstate] = useState("");
+  const [conState, setConState] = useState("");
+
+  function setNetWorkState(state) {
+    setConState(state);
+  }
+
+  function updateNetworkState() {
+    const ntwState = getNetWorkDetails();
+    setNetWorkState(ntwState);
+  }
+
   useEffect(() => {
-    console.log(navigator.connection);
-    var networkData = {};
-    for (var key in navigator.connection) {
-      if (typeof navigator.connection[key] !== "function") {
-        networkData[key] = navigator.connection[key];
-      }
-    }
-    const strConDetails = JSON.stringify({
-      ...networkData,
-      type: navigator.connection?.type,
-    });
-    setstate(strConDetails);
+    updateNetworkState();
   }, []);
 
-  return <div>{state}</div>;
+  const performanceType = getPerformanceType(conState.type);
+
+  return (
+    <div>
+      {performanceType}
+      <Emoji type={EmojiTyp.Saver_M} />
+    </div>
+  );
 }
 
 export default App;
