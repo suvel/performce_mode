@@ -1,4 +1,4 @@
-import getPerformanceType from "./getPerformanceType";
+import getModeType from "./getModeType";
 import getNetWorkDetails from "./getNetWorkDetails";
 
-export { getNetWorkDetails, getPerformanceType };
+export { getNetWorkDetails, getModeType };

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { getNetWorkDetails, getPerformanceType } from "./functions";
-import Emoji, { types as EmojiTyp } from "./components/Emoji";
+import { getNetWorkDetails, getModeType } from "./functions";
+import HeavyWorkMode from "./components/HeavyWorkMode";
+import SaverMode from "./components/SaverMode";
 
 function App() {
   const [conState, setConState] = useState("");
@@ -19,12 +20,17 @@ function App() {
     updateNetworkState();
   }, []);
 
-  const performanceType = getPerformanceType(conState.type);
+  const modeType = getModeType(conState.type);
+
+  function Mode({ type }) {
+    if (type == "Saver MODE") return <SaverMode />;
+    else if (type == "Heavy Work MODE") return <HeavyWorkMode />;
+    else return "Unable to process...";
+  }
 
   return (
     <div>
-      {performanceType}
-      <Emoji type={EmojiTyp.Saver_M} />
+      <Mode type={modeType} />
     </div>
   );
 }
