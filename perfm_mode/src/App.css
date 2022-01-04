@@ -3,4 +3,24 @@
   height: 100vh;
   width: 100vw;
   place-items: center;
+
+  /* animation: colorchange 2500ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running; */
+}
+
+@keyframes colorchange {
+  0% {
+    background: #f77e84;
+  }
+  70% {
+    background: #f77e84;
+  }
+  80% {
+    background: #2952c6;
+  }
+  100%{
+    background: #2952c6;
+  }
 }

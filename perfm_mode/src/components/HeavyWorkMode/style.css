@@ -1,0 +1,42 @@
+.heavy_work_mode {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  transition: ease-in-out;
+}
+
+.heavy_work_mode._true {
+  animation: colorchange_m2s 4.9s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  background: #2952c6;
+}
+
+.heavy_work_mode._false {
+  background-color: #f7c044;
+}
+
+@keyframes colorchange_m2s {
+  0% {
+    background: #2952c6;
+  }
+  20% {
+    background: #2952c6;
+  }
+  60% {
+    background: #2952c6;
+  }
+  80% {
+    background: #f7c044;
+  }
+  100% {
+    background: #f7c044;
+  }
+}
+
+.symbol {
+  width: 300px;
+}
